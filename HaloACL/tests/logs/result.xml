@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="PHPUnit" tests="13" assertions="14" failures="4" errors="7" time="4613.424720">
+    <testsuite name="" tests="13" assertions="14" failures="4" errors="7" time="4613.424720">
+      <testsuite name="TestDynamicAssignees" file="D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php" tests="13" assertions="14" failures="4" errors="7" time="4613.424720">
+        <testcase name="testAssignedToParameter" class="TestDynamicAssignees" file="D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php" line="1184" assertions="9" time="0.143670"/>
+        <testsuite name="TestDynamicAssignees::testDynamicAssigneesTest" tests="4" assertions="4" failures="4" errors="0" time="0.255540">
+          <testcase name="testDynamicAssigneesTest with data set #0" assertions="1" time="0.080238">
+            <failure type="PHPUnit_Framework_ExpectationFailedException">TestDynamicAssignees::testDynamicAssigneesTest with data set #0 (array('{{#ask: [[TeamA]][[TeamMembers::+]]|?TeamMembers # =}}'), array(array('U1'), array('Group/A')))
+Expected 2 dynamic groups.
+Failed asserting that &lt;integer:1&gt; matches expected &lt;integer:2&gt;.
+
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php:1321
+D:\MediaWiki\HaloSMWExtension\tests\tests_halo\run-test.php:7
+</failure>
+          </testcase>
+          <testcase name="testDynamicAssigneesTest with data set #1" assertions="1" time="0.059308">
+            <failure type="PHPUnit_Framework_ExpectationFailedException">TestDynamicAssignees::testDynamicAssigneesTest with data set #1 (array('{{#sparql: SELECT ?tm WHERE { a:TeamA property:TeamMembers ?tm .} |?tm # =}}'), array(array('U1'), array('Group/A')))
+Expected 2 dynamic groups.
+Failed asserting that &lt;integer:1&gt; matches expected &lt;integer:2&gt;.
+
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php:1321
+D:\MediaWiki\HaloSMWExtension\tests\tests_halo\run-test.php:7
+</failure>
+          </testcase>
+          <testcase name="testDynamicAssigneesTest with data set #2" assertions="1" time="0.054148">
+            <failure type="PHPUnit_Framework_ExpectationFailedException">TestDynamicAssignees::testDynamicAssigneesTest with data set #2 (array('{{#ask: [[TeamA]][[ProjectMembers::+]]|?ProjectMembers # =}}'), array(array('U1', 'U2', 'U3'), array('Group/A', 'Group/B')))
+Expected 5 dynamic groups.
+Failed asserting that &lt;integer:2&gt; matches expected &lt;integer:5&gt;.
+
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php:1321
+D:\MediaWiki\HaloSMWExtension\tests\tests_halo\run-test.php:7
+</failure>
+          </testcase>
+          <testcase name="testDynamicAssigneesTest with data set #3" assertions="1" time="0.061846">
+            <failure type="PHPUnit_Framework_ExpectationFailedException">TestDynamicAssignees::testDynamicAssigneesTest with data set #3 (array('{{#sparql: SELECT ?tm WHERE { a:TeamA property:ProjectMembers ?tm .} |?tm # =}}'), array(array('U1', 'U2', 'U3'), array('Group/A', 'Group/B')))
+Expected 5 dynamic groups.
+Failed asserting that &lt;integer:2&gt; matches expected &lt;integer:5&gt;.
+
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php:1321
+D:\MediaWiki\HaloSMWExtension\tests\tests_halo\run-test.php:7
+</failure>
+          </testcase>
+        </testsuite>
+        <testsuite name="TestDynamicAssignees::testDynamicAssigneeRights" tests="4" assertions="0" failures="0" errors="4" time="2113.323326">
+          <testcase name="testDynamicAssigneeRights with data set #0" assertions="0" time="204.966128">
+            <error type="HACLGroupException">TestDynamicAssignees::testDynamicAssigneeRights with data set #0 (array('{{#ask: [[TeamA]][[TeamMembers::+]]|?TeamMembers # =}}'), array('U1', 'U2', 'U3'), array('U4', 'U5'))
+HACLGroupException: The group ID &lt;&gt; is invalid.
+
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Group.php:189
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Right.php:407
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php:1435
+D:\MediaWiki\HaloSMWExtension\tests\tests_halo\run-test.php:7
+</error>
+          </testcase>
+          <testcase name="testDynamicAssigneeRights with data set #1" assertions="0" time="18.759013">
+            <error type="HACLGroupException">TestDynamicAssignees::testDynamicAssigneeRights with data set #1 (array('{{#sparql: SELECT ?tm WHERE { a:TeamA property:TeamMembers ?tm .} |?tm # =}}'), array('U1', 'U2', 'U3'), array('U4', 'U5'))
+HACLGroupException: The group ID &lt;&gt; is invalid.
+
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Group.php:189
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Right.php:407
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php:1435
+D:\MediaWiki\HaloSMWExtension\tests\tests_halo\run-test.php:7
+</error>
+          </testcase>
+          <testcase name="testDynamicAssigneeRights with data set #2" assertions="0" time="746.615162">
+            <error type="HACLGroupException">TestDynamicAssignees::testDynamicAssigneeRights with data set #2 (array('{{#ask: [[TeamA]][[ProjectMembers::+]]|?ProjectMembers # =}}'), array('U1', 'U2', 'U3', 'U4', 'U5'), array())
+HACLGroupException: The group ID &lt;&gt; is invalid.
+
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Group.php:189
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Right.php:407
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php:1435
+D:\MediaWiki\HaloSMWExtension\tests\tests_halo\run-test.php:7
+</error>
+          </testcase>
+          <testcase name="testDynamicAssigneeRights with data set #3" assertions="0" time="1142.983023">
+            <error type="HACLGroupException">TestDynamicAssignees::testDynamicAssigneeRights with data set #3 (array('{{#sparql: SELECT ?tm WHERE { a:TeamA property:ProjectMembers ?tm .} |?tm # =}}'), array('U1', 'U2', 'U3', 'U4', 'U5'), array())
+HACLGroupException: The group ID &lt;&gt; is invalid.
+
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Group.php:189
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Right.php:407
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php:1435
+D:\MediaWiki\HaloSMWExtension\tests\tests_halo\run-test.php:7
+</error>
+          </testcase>
+        </testsuite>
+        <testcase name="testDynamicAssigneeDB" class="TestDynamicAssignees" file="D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php" line="1447" assertions="1" time="0.015410"/>
+        <testsuite name="TestDynamicAssignees::testDynamicAssigneeRightsUserCan" tests="3" assertions="0" failures="0" errors="3" time="2499.686774">
+          <testcase name="testDynamicAssigneeRightsUserCan with data set #0" assertions="0" time="465.828011">
+            <error type="HACLGroupException">TestDynamicAssignees::testDynamicAssigneeRightsUserCan with data set #0 ('read', array('U1', 'U2', 'U3', 'U4', 'U5'), array())
+HACLGroupException: The group ID &lt;&gt; is invalid.
+
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Group.php:189
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Right.php:407
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Evaluator.php:429
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Evaluator.php:286
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\CommonClasses.php:226
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php:1506
+D:\MediaWiki\HaloSMWExtension\tests\tests_halo\run-test.php:7
+</error>
+          </testcase>
+          <testcase name="testDynamicAssigneeRightsUserCan with data set #1" assertions="0" time="2025.274625">
+            <error type="HACLGroupException">TestDynamicAssignees::testDynamicAssigneeRightsUserCan with data set #1 ('formedit', array('U1', 'U2', 'U3', 'U4', 'U5'), array())
+HACLGroupException: The group ID &lt;&gt; is invalid.
+
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Group.php:189
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Right.php:407
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Evaluator.php:429
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Evaluator.php:286
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\CommonClasses.php:226
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php:1506
+D:\MediaWiki\HaloSMWExtension\tests\tests_halo\run-test.php:7
+</error>
+          </testcase>
+          <testcase name="testDynamicAssigneeRightsUserCan with data set #2" assertions="0" time="8.584138">
+            <error type="HACLGroupException">TestDynamicAssignees::testDynamicAssigneeRightsUserCan with data set #2 ('wysiwyg', array('U1', 'U2', 'U3', 'U5'), array('U4'))
+HACLGroupException: The group ID &lt;&gt; is invalid.
+
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Group.php:189
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Right.php:407
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Evaluator.php:429
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\includes\HACL_Evaluator.php:286
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\CommonClasses.php:226
+D:\MediaWiki\HaloSMWExtension\extensions\HaloACL\tests\testcases\TestDynamicHaloACL.php:1506
+D:\MediaWiki\HaloSMWExtension\tests\tests_halo\run-test.php:7
+</error>
+          </testcase>
+        </testsuite>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>
