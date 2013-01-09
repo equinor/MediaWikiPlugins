@@ -229,7 +229,7 @@ class HACLMemcache {
 	 * Registers all hooks that are needed to track changes in the wiki content 
 	 * and HaloACL rights that affect the cache.
 	 */
-	public function setupHooks() {
+	public static function setupHooks() {
 		global $wgHooks;
 		$wgHooks['ArticleSaveComplete'][] = 'HACLMemcache::onArticleSaveComplete';
 		$wgHooks['ArticleDelete'][] = 'HACLMemcache::onArticleDelete';
