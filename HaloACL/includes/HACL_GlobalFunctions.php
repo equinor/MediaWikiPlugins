@@ -672,20 +672,16 @@ function haclfArticleID($articleName, $defaultNS = NS_MAIN) {
 	$etc = haclfDisableTitlePatch();
 	$t = Title::newFromText($articleName, $defaultNS);
 	haclfRestoreTitlePatch($etc);
-	debug_printmsg("haclfArticleID name: $articleName etc: $etc t: $t", false);
 	if (is_null($t)) {
 		return 0;
 	}
 	$id = $t->getArticleID();
-	debug_printmsg("haclfArticleID id: $id nr1", false);
 	if ($id === 0) {
 		$id = $t->getArticleID(Title::GAID_FOR_UPDATE);
 	}
-	debug_printmsg("haclfArticleID id: $id nr2", false);
 	if ($id == 0 && $t->getNamespace() == NS_SPECIAL) {
 		$id = HACLStorage::getDatabase()->idForSpecial($articleName);
 	}
-	debug_printmsg("haclfArticleID id: $id nr3", false);
 	return $id;
 
 }

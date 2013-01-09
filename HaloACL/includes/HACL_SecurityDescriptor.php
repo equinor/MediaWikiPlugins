@@ -171,7 +171,6 @@ class  HACLSecurityDescriptor  {
 	 * 		ID of the protected element or <false>, if it does not exist.
 	 */
 	public static function peIDforName($peName, $peType) {
-		debug_printmsg("peIDforName: peName: $peName;  peType: $peType", false);
 		if ($peType === self::PET_NAMESPACE) {
 			// $peName is a namespace => get its ID
 			global $wgContLang;
@@ -187,9 +186,7 @@ class  HACLSecurityDescriptor  {
 			return false;
 		}
 		// return the page id
-		debug_printmsg("peIDforName2: peName: $peName;  peType: $peType", false);
 		$id = haclfArticleID($peName);
-		debug_printmsg("peIDforName3: id: $id", false);
 		return $id == 0 ? false : $id;
 		
 	}
@@ -297,13 +294,11 @@ class  HACLSecurityDescriptor  {
 	 */
 	public static function existsPEforSDName($sdName) {
 		list($pe, $peType) = self::nameOfPE($sdName);
-		debug_printmsg("existsPEforSDName2: sdName: $sdName; pe: $pe; peType: $peType", false);
 		if ($peType === self::PET_RIGHT) {
 			// Right templates do not need a concrete protected element
 			return true;
 		}
 		$peID = self::peIDforName($pe, $peType);
-		debug_printmsg("existsPEforSDName2: peID: $peID", false);
 		return $peID !== false;
 	}
 	

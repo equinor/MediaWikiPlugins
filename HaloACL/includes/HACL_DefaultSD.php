@@ -295,18 +295,13 @@ class  HACLDefaultSD  {
 		
 		// Get the content of the article with the master template in $haclgNewUserTemplate
 		global $haclgNewUserTemplate, $haclgDefaultQuickAccessRightMasterTemplates;
-		debug_printmsg("HACL::newuser");
 		if (isset($haclgNewUserTemplate)) {
-		debug_printmsg("HACL::newuser1");
 			// master template specified
 			self::createUserDefaultTemplate($newUser);
 		}
-		debug_printmsg("HACL::newuser2");
 		if (isset($haclgDefaultQuickAccessRightMasterTemplates)) {
-		debug_printmsg("HACL::newuser3");
 			self::setQuickAccessRights($newUser);
 		}
-		debug_printmsg("HACL::newuser4");
 		return true;
 	}
 	

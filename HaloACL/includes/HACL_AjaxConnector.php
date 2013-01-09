@@ -5524,24 +5524,19 @@ function haclDoesArticleExists($articlename,$protect) {
 
     // Check if the element can be protected
     $sdName = HACLSecurityDescriptor::nameOfSD($articlename, $peType);
-	debug_printmsg("sdName: $sdName", false);
 	if (!$sdName) {
 		// Invalid protected element
 		$response->addText("false");
 		return $response;
 	}
 	
-	debug_printmsg("existsPEforSDName?", false);
 	if (!HACLSecurityDescriptor::existsPEforSDName($sdName)) {
-		debug_printmsg("existsPEforSDName: false", false);
 		$response->addText("false");
 		return $response;
 	}
-	debug_printmsg("existsPEforSDName: true", false);
 	
 	// Check if the element is already protected.
 	$sdID = HACLSecurityDescriptor::idForSD($sdName);
-	debug_printmsg("sdID: $sdID", false);
 	if ($sdID) {
 		$response->addText("sdexisting");
 		return $response;
@@ -5550,14 +5545,11 @@ function haclDoesArticleExists($articlename,$protect) {
 	// The article might not be protectable as it is already protected
 	// by a category or a namespace
     global $wgUser;
-	debug_printmsg("sdTitle: $sdTitle", false);
     if (HACLEvaluator::checkSDCreation($sdTitle, $wgUser) === false) {
-	debug_printmsg("articleIsProtected", false);
     	$response->addText("articleIsProtected");
 		return $response;
    	}
     	
-	debug_printmsg("response: true", true);
    	$response->addText("true");
    	return $response;
 }
