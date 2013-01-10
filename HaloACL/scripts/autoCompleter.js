@@ -67,6 +67,9 @@ YAHOO.haloacl.AutoCompleter = function(fieldName, containerName) {
 
     oAC.forceSelection = false;
 
+	oAC.minQueryLength = 3;
+	oAC.queryDelay = 0.5;
+
     oAC.generateRequest = function(sQuery) {
         // trying to add select protect
         var protect = null;
