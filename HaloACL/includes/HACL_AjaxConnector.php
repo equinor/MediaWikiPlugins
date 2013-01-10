@@ -4154,7 +4154,7 @@ function haclGetAutocompleteDocuments($subName,$type) {
     } else {
 	    $articles = HACLStorage::getDatabase()->getArticles($subName,true,$type);
 	    if (sizeof($articles) == 0 && strpos($subName, ":") !== FALSE) {
-		    $splitted = preg_split(":", $subName, 1);
+		    $splitted = preg_split("/:/", $subName, 2);
 		    $articles = HACLStorage::getDatabase()->getArticles($splitted[1],true,$type, $splitted[0]);
 	    }
         foreach ($articles as $item) {

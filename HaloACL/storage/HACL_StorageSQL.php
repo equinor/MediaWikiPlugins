@@ -1622,12 +1622,12 @@ class HACLStorageSQL {
 	 *
 	 */
 	public function getArticles($subName, $noACLs=false, $type =null, $namespace = null) {
-
 		$extendWhere = null;
 		if ($namespace != null) {
+			$namespace = strtolower($namespace);
 			$extendWhere = MWNamespace::getCanonicalIndex($namespace);
 		}
-		if ($extendWhere != null) {
+		if ($extendWhere == null) {
 			if($type == "property"){
 				$extendWhere = SMW_NS_PROPERTY;
 			}elseif($type == "category"){
@@ -1657,7 +1657,11 @@ class HACLStorageSQL {
 		$res = $db->query($sql);
 		$articleArray = array();
 		while ($row = $db->fetchObject($res)) {
-			$articleArray[] = array("id"=>$row->page_id, "name"=>$row->page_title);
+			if ($namespace !== null) {
+				$articleArray[] = array("id"=>$row->page_id, "name"=>$namespace . ":" . $row->page_title);
+			} else {
+				$articleArray[] = array("id"=>$row->page_id, "name"=>$row->page_title);
+			}				
 		}
 		$db->freeResult($res);
 		return $articleArray;
