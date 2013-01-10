@@ -4122,7 +4122,7 @@ function haclGetAutocompleteDocuments($subName,$type) {
     } elseif ($type == "category") {
         $realnametype = "Category";
     } elseif ($type == "property") {
-        $realnametype = "Proptery";
+        $realnametype = "Property";
     }
 
     $a = array();
@@ -4152,7 +4152,12 @@ function haclGetAutocompleteDocuments($subName,$type) {
             }
         }
     } else {
-        foreach (HACLStorage::getDatabase()->getArticles($subName,true,$type) as $item) {
+	    $articles = HACLStorage::getDatabase()->getArticles($subName,true,$type);
+	    if (sizeof($articles) == 0 && strpos($subName, ":") !== FALSE) {
+		    $splitted = preg_split(":", $subName, 1);
+		    $articles = HACLStorage::getDatabase()->getArticles($splitted[1],true,$type, $splitted[0]);
+	    }
+        foreach ( as $item) {
             $addThatItem = true;
             $itemname = $item["name"];
             $SDName = "$ns:$realnametype/$itemname";
