@@ -4157,7 +4157,7 @@ function haclGetAutocompleteDocuments($subName,$type) {
 		    $splitted = preg_split(":", $subName, 1);
 		    $articles = HACLStorage::getDatabase()->getArticles($splitted[1],true,$type, $splitted[0]);
 	    }
-        foreach ( as $item) {
+        foreach ($articles as $item) {
             $addThatItem = true;
             $itemname = $item["name"];
             $SDName = "$ns:$realnametype/$itemname";
