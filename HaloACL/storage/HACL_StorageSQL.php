@@ -1624,8 +1624,7 @@ class HACLStorageSQL {
 	public function getArticles($subName, $noACLs=false, $type =null, $namespace = null) {
 		$extendWhere = null;
 		if ($namespace != null) {
-			$namespace = strtolower($namespace);
-			$extendWhere = MWNamespace::getCanonicalIndex($namespace);
+			$extendWhere = MWNamespace::getCanonicalIndex(strtolower($namespace));
 		}
 		if ($extendWhere == null) {
 			if($type == "property"){

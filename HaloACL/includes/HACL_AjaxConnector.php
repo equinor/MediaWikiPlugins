@@ -489,7 +489,8 @@ HTML;
                 xml+="<panelid>create_acl</panelid>";
 
                 xml+="<users>";
-                $$('.datatableDiv_right_tabview_create_acl_modificationrights_users').each(function(item){
+    //          YAHOO.haloacl.clickedArrayUsers["right_tabview_create_acl_modificationrights"].each(function(item) {
+	                $$('.datatableDiv_right_tabview_create_acl_modificationrights_users').each(function(item){
                     if (item.checked){
                         xml+="<user>"+escape(item.name)+"</user>";
                     }
