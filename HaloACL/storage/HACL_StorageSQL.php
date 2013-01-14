@@ -1657,7 +1657,7 @@ class HACLStorageSQL {
 		$articleArray = array();
 		while ($row = $db->fetchObject($res)) {
 			if ($namespace !== null) {
-				$articleArray[] = array("id"=>$row->page_id, "name"=>$namespace . ":" . $row->page_title);
+				$articleArray[] = array("id"=>$row->page_id, "name"=>MWNamespace::getCanonicalName($extendWhere) . ":" . $row->page_title);
 			} else {
 				$articleArray[] = array("id"=>$row->page_id, "name"=>$row->page_title);
 			}				
