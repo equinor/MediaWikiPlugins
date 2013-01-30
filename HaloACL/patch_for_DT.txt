@@ -1,0 +1,15 @@
+Index: extensions/DataTransfer/specials/DT_ViewXML.php
+===================================================================
+--- extensions/DataTransfer/specials/DT_ViewXML.php	(revision 6753)
++++ extensions/DataTransfer/specials/DT_ViewXML.php	(working copy)
+@@ -201,6 +201,10 @@ class DTViewXML extends SpecialPage {
+ static function getXMLForPage( $title, $simplified_format, $groupings, $depth = 0 ) {
+   if ( $depth > 5 ) { return ""; }
+ 
++  if ( !$title->userCanReadEx() ) {
++	  return "";
++  }
++
+   global $wgContLang, $dtgContLang;
+ 
+   $namespace_labels = $wgContLang->getNamespaces();
