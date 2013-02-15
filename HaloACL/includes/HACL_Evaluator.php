@@ -98,11 +98,16 @@ class HACLEvaluator {
 	 * @return boolean
 	 * 		true
 	 */
-	public static function userCan($title, $user, $action, &$result) {
+	public static function userCan($t, $user, $action, &$result) {
 		wfProfileIn( 'HACLEvaluator::userCan (HaloACL)' );
 		global $wgRequest;
 
-		self::startLog($title, $user, $action);
+		self::startLog($t, $user, $action);
+		if (MWNamespace::isTalk($t->getNamespace())) {
+			$title = Title::newFromText($t->getText(), MWNamespace::getSubject($t->getNamespace()));
+		} else {
+			$title = $t;
+		}
 		
 //		echo $title->getFullText().":".$action." (Request:".$wgRequest->getText('action').")\n";
 
