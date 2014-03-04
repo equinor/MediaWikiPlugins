@@ -16,11 +16,16 @@ class OpenSceneGraphHooks {
 		$url = $wgServer;
 		if ($args['file']) {
 			if (stripos($args['file'], 'http://') === 0 ||
-			    stripos($args['file'], 'https://') === 0) {
+			    stripos($args['file'], 'https://') === 0 ||
+				stripos($args['file'], 'file://') === 0 ||
+				stripos($args['file'], 'ftp://') === 0) {
+				//absolute uri
 				$url = $args['file'];
 			} else if ($args['file'][0] !== '/') {
-				$url .= $basepath;
+				//relative uri
+				$url .= join('/',array($basepath,$args['file']));
 			} else {
+				//relative uri
 				$url .= $args['file'];
 			}
 			$output = "<div class=\"osg-container\" style=\"width: {$config['width']}px; height: {$config['height']}px;\">";
