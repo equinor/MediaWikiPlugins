@@ -29,7 +29,7 @@ class OpenSceneGraphHooks {
 				$url .= $args['file'];
 			}
 			$output = "<div class=\"osg-container\" style=\"width: {$config['width']}px; height: {$config['height']}px;\">";
-			$output .= "<object class=\"osg-obj\" type=\"application/osg-viewer\" data=\"$url\"></object>";
+			$output .= "<div class=\"osg-obj-container\"><object class=\"osg-obj\" type=\"application/osg-viewer\" data=\"$url\"></object></div>";
 			$output .= "<button class=\"fullscreen-control\">Toggle fullscreen</button>";
 			$output .= '</div>';
 		} else {
