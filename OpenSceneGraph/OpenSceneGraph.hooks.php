@@ -14,26 +14,32 @@ class OpenSceneGraphHooks {
 		$basepath = $wgScriptPath;
 		$config = self::getTagConfig($args);
 		$url = $wgServer;
-		if ($args['file']) {
-			if (stripos($args['file'], 'http://') === 0 ||
-			    stripos($args['file'], 'https://') === 0 ||
-				stripos($args['file'], 'file://') === 0 ||
-				stripos($args['file'], 'ftp://') === 0) {
+		$file = $args['file'];
+
+		if(filter_var($file, FILTER_VALIDATE_URL) === false){
+			$file = $parser->recursiveTagParse($file,$frame);
+		}
+
+		if ($file) {
+			if (stripos($file, 'http://') === 0 ||
+			    stripos($file, 'https://') === 0 ||
+				stripos($file, 'file://') === 0 ||
+				stripos($file, 'ftp://') === 0) {
 				//absolute uri
-				$url = $args['file'];
-			} else if ($args['file'][0] !== '/') {
+				$url = $file;
+			} else if ($file[0] !== '/') {
 				//relative uri
-				$url .= join('/',array($basepath,$args['file']));
+				$url .= join('/',array($basepath,$file));
 			} else {
 				//relative uri
-				$url .= $args['file'];
+				$url .= $file;
 			}
 			$output = "<div class=\"osg-container\" style=\"width: {$config['width']}px; height: {$config['height']}px;\">";
 			$output .= "<div class=\"osg-obj-container\"><object class=\"osg-obj\" type=\"application/osg-viewer\" data=\"$url\"></object></div>";
 			$output .= "<button class=\"fullscreen-control\">Toggle fullscreen</button>";
 			$output .= '</div>';
 		} else {
-			$output = "<div>IVS file " . $args['file'] . "doesn't exist</div>";
+			$output = "<div>IVS file " . $file . "doesn't exist</div>";
 		}
 		return array($output, 'noparse' => true, 'isHTML' => true);
 	}
